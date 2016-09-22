@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Registration Successful{% endblock %}
+{% block head %}
+ DashBoard
+{% endblock %}
+{% block content %}
+    <center>
+        <div class="panel-body">
+            <form method="post" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                <img src={{ url }} style="width:200px;height:200px;border-style: solid;border-width: 5px;" >
+                <h3>{{user.username}}</h3>
+                <p class="bs-component">
+                <table>
+                    <tr>
+                        <td>{{ form.first_name.label_tag }}</td>
+                        <td>{{ form.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.last_name.label_tag }}</td>
+                        <td>{{ form.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.email.label_tag }}</td>
+                        <td>{{ form.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.image.label_tag }}</td>
+                        <td>
+                            <input id="id_image" name="image" type="file"></td>
+                    </tr>
+                </table>
+
+                <p class="bs-component">
+                    <button class="btn btn-success btn-sm" type="submit" >SAVE</button>
+                    <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </center>
+{% endblock %}
