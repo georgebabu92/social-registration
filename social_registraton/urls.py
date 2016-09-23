@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^$', login, name='login'),
     url(r'^logout/$', views.logout, {'next_page': '/'}),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT})
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ]
 
