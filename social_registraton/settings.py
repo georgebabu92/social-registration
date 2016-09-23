@@ -136,12 +136,14 @@ USE_TZ = True
 
 SITE_ID = 1
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = 'media'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASES['default'] = dj_database_url.config()
 
